@@ -102,36 +102,7 @@ fs.readdir("./commands/Fun", (err, files) => {
         bot.commands.set(props.help.name, props);
     });
 });
-fs.readdir("./commands/Fun/AnimalPhotos/", (err, files) => {
 
-    if (err) console.log(err);
-    let jsfile = files.filter(f => f.split(".").pop() === "js");
-    if (jsfile.length <= 0) {
-        console.log("Couldn't find Fun/AnimalPhotos commands.");
-        return;
-    }
-
-    jsfile.forEach((f, i) => {
-        let props = require(`./commands/Fun/AnimalPhotos/${f}`);
-        console.log(`${f} loaded!`);
-        bot.commands.set(props.help.name, props);
-    });
-});
-fs.readdir("./commands/Fun/SpecialCommands/", (err, files) => {
-
-    if (err) console.log(err);
-    let jsfile = files.filter(f => f.split(".").pop() === "js");
-    if (jsfile.length <= 0) {
-        console.log("Couldn't find Fun/SpecialConnamds commands.");
-        return;
-    }
-
-    jsfile.forEach((f, i) => {
-        let props = require(`./commands/Fun/SpecialCommands/${f}`);
-        console.log(`${f} loaded!`);
-        bot.commands.set(props.help.name, props);
-    });
-});
 fs.readdir("./commands/Info/", (err, files) => {
 
     if (err) console.log(err);
