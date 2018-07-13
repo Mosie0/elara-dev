@@ -15,6 +15,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("CrypticOmission's Discord", "https://discord.gg/G7CBfeZ", true)
         .addField("Amy's Discord", "https://discord.gg/7mh7tfR", true)
         .addField("Ibotmealot's Discord", "https://discord.gg/zbZKWKa", true)
+        .addField(`DaxSquad Discord`, "https://discord.gg/hHQMwt7", true)
         .addBlankField()
         .addField("Lumber Related Discord's", "Listed Down Below")
         .addField("Lumber Chat Discord", "https://discord.gg/2TC4EKY", true)
@@ -24,6 +25,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Official Discord Events","https://discord.gg/events", true)
         .addField("Discord Developers","https://discord.gg/discord-developers", true)
         .addField("Discord Testers", "https://discord.gg/discord-testers", true)
+        .addField("Discord Feedback", "https://discord.gg/discord-feedback", true)
     message.channel.send(botembed);
     message.delete().catch();
 }

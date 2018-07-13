@@ -10,7 +10,6 @@ module.exports.run = async (bot, message, args) => {
         .setThumbnail(`${aTaged.displayAvatarURL}`)
         .addField("Name", `<@${aTaged.id}>`, true)
         .addField("USERID", aTaged.id, true)
-        .addField("Position", message.guild.aTaged.userposition(' '))
         .addField("Status", aTaged.presence.status, true)
         .setAuthor(`${aTaged.aTagedname}`, `${aTaged.displayAvatarURL}`)
         .setFooter("Joined At" + aTaged.createdAt)

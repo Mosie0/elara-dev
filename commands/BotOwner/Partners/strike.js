@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    if (message.author.id !== "288450828837322764") return message.reply("This is a Bot Owner Command Only!");
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Sorry but you don't have the permissions to use this command.");
     let VaLembed = new Discord.RichEmbed()
         .setColor("#000FF")
         .setAuthor("Owner's Strike & Savage ", "https://cdn.discordapp.com/attachments/444028025932349441/447700673967161344/6ed3faa8ed229ce9cde2231a2dadb88d.png")

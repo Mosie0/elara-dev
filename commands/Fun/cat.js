@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
     let result = Math.floor((Math.random() * replies.length));
     let embed = new Discord.RichEmbed()
         .setColor("#FF000")
-        .setDescription("<a:Dots:426956230582599690> Loading the Command, Please Wait.,,,,")
+        .setDescription("<a:Dots:426956230582599690> Loading a Cat Photo, Please Wait.,,,,")
 
     message.channel.send(embed).then(message => {
         embed.setColor("#000FF")

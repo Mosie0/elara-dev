@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    if (message.author.id !== "288450828837322764") return message.reply("This is a Bot Owner Command Only!");
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Sorry but you don't have the permissions to use this command.");
     let bicon = ("https://cdn.discordapp.com/avatars/261249219812261888/a_6886d95b05a6ff89ae4fc003ddaa88ff.gif?size=2048");
     let VaLembed = new Discord.RichEmbed()
         .setColor("#FF0000")

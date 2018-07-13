@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    let channel = message.channel;
+
+    //!addrole @andrew Dog Person
     if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("Sorry pal, you can't do that.");
     let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if (!rMember) return message.reply("Sorry please check again i don't see that user.");
@@ -14,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     await (rMember.addRole(gRole.id));
 
     try {
-        await rMember.send(`Congrats, you have been given the role ${gRole.name}`)
+        await message.channel.send(`Congrats, you have been given the role ${gRole.name}`)
     } catch (e) {
         message.channel.send(`Congrats to <@${rMember.id}>, they have been given the role ${gRole.name}. I've Tried Dming the <@${rMember.id}> but their Dms are Closed.`)
     }

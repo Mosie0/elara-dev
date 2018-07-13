@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const superagent = require("superagent");
-// const api = "";
+const api = "H9GtFs1jpzwpXZZRW6YOHnHEv31Ka203";
 // ==========================================================================================================================================
 module.exports.run = async (bot, message, args) => {
     const userURL = message.author.avatarURL;
     const usernameid = message.author.username;
     // ==========================================================================================================================================
     let { body } = await superagent
-        .get(`https://api.imgur.com/3/gallery/search/?q=${encodeURIComponent(args.join(" "))}`, { json: true });
+        .get(`https://api.giphy.com/v1/gifs/random?api_key=${api}&tag=${encodeURIComponent(args.join(" "))}`, { json: true });
     // ==========================================================================================================================================
     const brokenembed = new Discord.RichEmbed()
         .setColor("#FF0000")
@@ -38,5 +38,5 @@ module.exports.run = async (bot, message, args) => {
     })
 }
 module.exports.help = {
-    name: "test"
+    name: "gif"
 }
