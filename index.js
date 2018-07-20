@@ -15,9 +15,23 @@ bot.login(process.env.BOT_TOKEN);
 // Start Of the bot.on Messages.
 
 bot.on("ready", async () => {
+    const newserverHook = new Discord.WebhookClient("468934028456624128", "uXqOE7rntpp6mbusU_lEseeRdo-f0-Sn_Qxfw76xDk-o0r1LPCNnYrx_F-mvLszRoYaF");
+    const embed = new Discord.RichEmbed()
+        .setColor(`#FF000`)
+        .setAuthor(bot.user.username, bot.user.avatarURL)
+        .setTimestamp()
+        .setDescription(`${bot.user.username} Just Started/Restarted!`)
+        .setThumbnail(bot.user.avatarURL)
+        .setFooter(`Bot Started At: `)
+    newserverHook.send(embed)
     console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
-    bot.user.setGame(`${bot.user.username} ` + `Serving: ${bot.guilds.size} Servers` , "https://www.twitch.tv/superchiefyt");
-    bot.user.setStatus("online");
+    bot.user.setPresence({
+        game: {
+            name: `${bot.user.username} Serving: ${bot.guilds.size} Servers, ${bot.users.size} Users`,
+            type: "STREAMING",
+            url: "https://www.twitch.tv/elarabots_discord"
+        }
+    })
 });
 
 bot.on(`disconnect`, () => {
