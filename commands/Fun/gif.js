@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const superagent = require("superagent");
-const api = "H9GtFs1jpzwpXZZRW6YOHnHEv31Ka203";
+const api = process.env.GIPHY_API_KEY;
 // ==========================================================================================================================================
 module.exports.run = async (bot, message, args) => {
     const userURL = message.author.avatarURL;
