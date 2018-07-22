@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+    if (message.author.id !== "288450828837322764") return;
     let bicon = ("https://cdn.discordapp.com/emojis/405944757869871105.gif?v=1");
     let botembed = new Discord.RichEmbed()
         .setColor("#000FF")
