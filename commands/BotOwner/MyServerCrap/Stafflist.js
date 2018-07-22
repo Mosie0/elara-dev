@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#000FF")
         .setThumbnail(message.guild.iconURL)
         .setDescription("The Current Staff list")
-        .setURL("https://discord.gg/TxNzFZU")
+        .setURL("https://discord.gg/hgsM86w")
         .addField("Owner","_ _ <@288450828837322764>")
         .addField("Co Owners","_ _<@253667774306582529> \n <@303789586151112704> \n <@368775528234352642>")
         .addField("Admins","_ _<@330752829859954698> \n <@285663216770744321> \n <@84655713216892928> \n <@298201869585612810> \n <@267776254743150602> \n <@390109833317056514> ")
