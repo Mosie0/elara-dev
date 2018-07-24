@@ -15,7 +15,7 @@ bot.login(process.env.BOT_TOKEN);
 // Start Of the bot.on Messages.
 
 bot.on("ready", async () => {
-    const newserverHook = new Discord.WebhookClient("468934028456624128", "uXqOE7rntpp6mbusU_lEseeRdo-f0-Sn_Qxfw76xDk-o0r1LPCNnYrx_F-mvLszRoYaF");
+    const newserverHook = new Discord.WebhookClient(`${process.env.WEBHOOKID}`, `${process.env.WEBHOOKTOKEN}`);
     const embed = new Discord.RichEmbed()
         .setColor(`#FF000`)
         .setAuthor(bot.user.username, bot.user.avatarURL)
