@@ -10,17 +10,20 @@ module.exports.run = async (bot, msg, args) => {
         let partTwo = s.slice(i + 1, s.length).trim();
         let embed1 = new Discord.RichEmbed()
             .setColor(`#FF000`)
-            .setDescription(`Current Server Emojis: ${partOne}`)
+            .setTitle(`Current Server Emojis`)
+            .setDescription(`${partOne}`)
         msg.channel.send(embed1);
         let embed2 = new Discord.RichEmbed()
             .setColor(`#FF000`)
-            .setDescription(`Current Server Emojis: ${partTwo}`)
+            .setTitle(`Current Server Emojis`)
+            .setDescription(`${partTwo}`)
         msg.channel.send(embed2);
     }
     else {
         let embed = new Discord.RichEmbed()
         .setColor(`#FF000`)
-        .setDescription(`Current Server Emojis: **${msg.guild.name}**:\n${msg.guild.emojis.map(e => e).join(' ')}`)
+        .setTitle(`Current Server Emojis`)
+        .setDescription(`${msg.guild.emojis.map(e => e).join(' ')}`)
         msg.channel.send(embed);
     }
 }
