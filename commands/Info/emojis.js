@@ -3,7 +3,7 @@ module.exports.run = async (bot, msg, args) => {
     if (msg.guild.emojis.size === 0) {
         return msg.channel.send('There are no emojis on this server.');
     }
-    else if (msg.guild.emojis.map(e => e).join(' ').length > 20480) {
+    else if (msg.guild.emojis.map(e => e).join(' ').length > 2048) {
         let s = msg.guild.emojis.map(e => e).join(' ');
         let i = Math.ceil(s.length / 2);
         let partOne = s.slice(0, i).trim();
