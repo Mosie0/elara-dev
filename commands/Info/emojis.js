@@ -15,7 +15,6 @@ module.exports.run = async (bot, msg, args) => {
         msg.channel.send(embed1);
         let embed2 = new Discord.RichEmbed()
             .setColor(`#FF000`)
-            .setTitle(`Current Server Emojis`)
             .setDescription(`${partTwo}`)
         msg.channel.send(embed2);
     }
