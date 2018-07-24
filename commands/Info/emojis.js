@@ -8,8 +8,14 @@ module.exports.run = async (bot, msg, args) => {
         let i = Math.ceil(s.length / 2);
         let partOne = s.slice(0, i).trim();
         let partTwo = s.slice(i + 1, s.length).trim();
-        msg.channel.send(`Emojis on **${msg.guild.name}**:\n${partOne}`);
-        msg.channel.send(partTwo);
+        let embed1 = new Discord.RichEmbed()
+            .setColor(`#FF000`)
+            .setDescription(`Current Server Emojis: ${partOne}`)
+        msg.channel.send(embed1);
+        let embed2 = new Discord.RichEmbed()
+            .setColor(`#FF000`)
+            .setDescription(`Current Server Emojis: ${partTwo}`)
+        msg.channel.send(embed2);
     }
     else {
         let embed = new Discord.RichEmbed()
