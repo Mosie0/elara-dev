@@ -76,6 +76,7 @@ bot.on("message", async message => {
        .setTitle(`Riddle submitted`)
        .setDescription(`${message.content}`)
        riddleanswers.send(riddleembed)
+       message.author.send(`Your answer has been submitted.`);
     }
     if (message.author.bot) return;
     if (message.channel.type === "dm") return message.reply("Commands only work in discord channels");
