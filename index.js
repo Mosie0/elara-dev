@@ -65,7 +65,18 @@ bot.on("guildDelete", async guild => {
 });
 
 bot.on("message", async message => {
-
+    if (message.channel.id === "473583292814327829") {
+        message.delete().catch()
+        let riddleanswers = message.guild.channels.find(`name`, `elara-log`)
+        let riddleembed = new Discord.RichEmbed()
+            .setColor(`RANDOM`)
+            .setAuthor(`${message.author.tag}`, message.author.avatarURL)
+            .setTimestamp()
+            .setFooter(`Riddle submitted at`)
+            .setTitle(`Riddle submitted`)
+            .setDescription(`${message.content}`)
+        riddleanswers.send(riddleembed)
+    }
     if (message.author.bot) return;
     if (message.channel.type === "dm") return message.reply("Commands only work in discord channels");
 
