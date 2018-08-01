@@ -66,24 +66,24 @@ bot.on("guildDelete", async guild => {
 
 bot.on("message", async message => {
     if (message.channel.id === "473574603374067732") {
+        message.member.addRole(`474016263883194373`)
         message.delete().catch()
-       let riddleanswers = message.guild.channels.find(`name`, `elara-log`)
-       let riddleembed = new Discord.RichEmbed()
-       .setColor(`RANDOM`)
-       .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-       .setTimestamp()
-       .setFooter(`Riddle submitted at`)
-       .setTitle(`Riddle submitted`)
-       .setDescription(`${message.content}`)
-       riddleanswers.send(riddleembed)
-       let dmembed = new Discord.RichEmbed()
-       .setColor(`RANDOM`)
-       .setDescription(`Your riddle answer has been submitted.\n\n**Your Answer you submitted**\n ${message.content}`)
-       .setTimestamp()
-       .setFooter(`Answer Submitted At`)
-       .setAuthor(message.author.tag, message.author.avatarURL)
-
-       message.author.send(dmembed);
+        let riddleanswers = message.guild.channels.find(`name`, `elara-log`)
+        let riddleembed = new Discord.RichEmbed()
+            .setColor(`RANDOM`)
+            .setAuthor(`${message.author.tag}`, message.author.avatarURL)
+            .setTimestamp()
+            .setFooter(`Riddle submitted at`)
+            .setTitle(`Riddle submitted`)
+            .setDescription(`${message.content}`)
+        riddleanswers.send(riddleembed)
+        let dmembed = new Discord.RichEmbed()
+            .setColor(`RANDOM`)
+            .setDescription(`Your riddle answer has been submitted\nand Have been given the **Riddle Submitted** Role,\nWhich means you can't post another answer until next week\n\n**Your Answer you submitted**\n ${message.content}`)
+            .setTimestamp()
+            .setFooter(`Answer Submitted At`)
+            .setAuthor(message.author.tag, message.author.avatarURL)
+        message.author.send(dmembed);
     }
     if (message.author.bot) return;
     if (message.channel.type === "dm") return message.reply("Commands only work in discord channels");
