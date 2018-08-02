@@ -65,6 +65,10 @@ bot.on("guildDelete", async guild => {
 });
 
 bot.on("message", async message => {
+    if (message.channel.id === '455184204615909377') {
+        message.react('👍')
+        message.react('👎')
+    }
     if (message.channel.id === "473574603374067732") {
         message.member.addRole(`474016263883194373`)
         message.delete().catch()
