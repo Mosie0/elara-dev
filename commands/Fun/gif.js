@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
     let errorembed = new Discord.RichEmbed()
     .setColor(`RED`)
     .addField(`Info`, `This Command is now closed for now.`)
+    message.channel.send(errorembed)
     // const userURL = message.author.avatarURL;
     // const usernameid = message.author.username;
     // // ==========================================================================================================================================
