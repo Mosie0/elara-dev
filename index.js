@@ -91,7 +91,7 @@ bot.on("message", async message => {
     }
     if (message.author.bot) return;
     if (message.channel.type === "dm") return message.reply("Commands only work in discord channels");
-    const prefixes = ['s!', 'e!', 'E!', 'S!'];
+    const prefixes = ['e!', 'E!'];
     let prefix = false;
     for (const thisPrefix of prefixes) {
         if (message.content.startsWith(thisPrefix)) prefix = thisPrefix;
