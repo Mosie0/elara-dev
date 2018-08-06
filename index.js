@@ -91,15 +91,12 @@ bot.on("message", async message => {
     }
     if (message.author.bot) return;
     if (message.channel.type === "dm") return message.reply("Commands only work in discord channels");
-
-    let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-    if (!prefixes[message.guild.id]) {
-        prefixes[message.guild.id] = {
-            prefixes: botconfig.prefix
-        };
+    const prefixes = ['s!', 'e!', 'E!', 'S!'];
+    let prefix = false;
+    for (const thisPrefix of prefixes) {
+        if (message.content.startsWith(thisPrefix)) prefix = thisPrefix;
     }
-
-    let prefix = prefixes[message.guild.id].prefixes;
+    if (!prefix) return;
     if (!message.content.startsWith(prefix)) return;
     if (cooldown.has(message.author.id)) {
         message.delete();
