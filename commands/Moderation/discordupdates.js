@@ -4,8 +4,7 @@ module.exports.run = async (bot, message, args) => {
     let announce = message.guild.channels.find('name', 'discord-updates');
     let botembed = new Discord.RichEmbed()
         .setColor(`#FF000`)
-        .setTitle(`New ${args[0]} Update!`)
-        .setDescription(args.join(' ').slice(args[0]))
+        .setTitle(`${args.join(' ')}`)
         .setAuthor(`${message.guild.name}`, `${message.guild.iconURL}`)
         .setFooter(`Announcement From ${message.author.username}`, message.author.avatarURL)
     announce.send(botembed);
