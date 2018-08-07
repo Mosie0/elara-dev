@@ -3,6 +3,7 @@ module.exports.run = async (bot, message, args) => {
     let riddleannounce = message.guild.channels.find('name', 'weekly-riddle-ask')
     if (!riddleannounce) return message.channel.send(`Can't find the **weekly-riddle-ask** Channel!`)
     riddleannounce.send(args.join(' '))
+    await message.reply(`Send the message in ${riddleannounce} Channel`)
 }
 module.exports.help = {
     name: "riddle"
