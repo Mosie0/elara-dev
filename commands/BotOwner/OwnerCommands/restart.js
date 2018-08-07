@@ -10,10 +10,6 @@ module.exports.run = async (bot, message, args) => {
     .setThumbnail(bot.user.avatarURL)
     .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL)
     .setTimestamp()
-    const cantfindembed = new Discord.RichEmbed()
-        .setColor("#FF0000")
-        .setDescription(`Can't Find the **modlogs** Channel to Post my Restarting Message! **${bot.user.username}** Can't be Restart without that Channel!`)
-        .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL);
     console.log(`Bot Has Been Restart By: ` + message.author.username);
     if (message.author.id !== "288450828837322764") return message.reply("Sorry But this is a Bot Owner Only Command.");
     await message.react("✅");
