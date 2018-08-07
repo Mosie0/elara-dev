@@ -19,6 +19,7 @@
     "request": "^2.87.0",
     "snekfetch": "^4.0.4",
     "superagent": "~3.8.3",
-    "urban": "~0.3.1"
+    "urban": "~0.3.1",
+    "mathjs": "^5.0.4"
   }
 }
