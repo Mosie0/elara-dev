@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         .addField(`Joined Server At:`, `${moment(aTaged.joinedAt).format('dddd, MMMM Do YYYY, h:mm:ss a zz')}`)
         .addField("Status", aTaged.presence.status.toUpperCase(), true)
         .addField(`Game`, aTaged.presence.game ? aTaged.presence.game.name : 'N/A', true)
-        .addField(`Roles [${message.member.roles.size}]`, `${message.member.roles.sort((b, a) => { return a.position - b.position }).map(role => `${role}`).join(" | ")}`)
+        // .addField(`Roles [${message.member.roles.size}]`, `${message.member.roles.sort((b, a) => { return a.position - b.position }).map(role => `${role}`).join(" | ")}`)
         .setTimestamp()
     message.channel.send(botembed)
 }
