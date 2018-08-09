@@ -29,7 +29,9 @@ module.exports.run = async (bot, message, args) => {
     let serverEmbed = new Discord.RichEmbed()
         .setTitle("Server Information")
         .setColor("#000FF")
-        .setAuthor("Command Ran By: " + message.author.username, message.author.avatarURL)
+        .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL)
+        .addField(`Server Name`, message.guild.name, true)
+        .addField(`Server ID`, message.guild.id, true)
         .addField("Server Owner", `<@${message.guild.owner.user.id}>`, true)
         .addField(`Partnered`, `${message.guild.features.length === 0 ? 'No' : `Yes, features: ${message.guild.features.map(feature => `\`${feature}\``).join(', ')}`}`, true)
         .addField("Created", `${message.guild.createdAt.toString().substr(0, 15)},\n${checkDays(message.guild.createdAt)}`, true)
@@ -38,13 +40,15 @@ module.exports.run = async (bot, message, args) => {
         .addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
         .setTimestamp()
         .addField("Total Members", message.guild.memberCount, true)
+        .addField(`Member Status`, `**${message.guild.members.filter(o => o.presence.status === 'online').size}** Online\n**${message.guild.members.filter(i => i.presence.status === 'idle').size}** Idle/Away\n**${message.guild.members.filter(dnd => dnd.presence.status === 'dnd').size}** Do Not Disturb\n**${message.guild.members.filter(off => off.presence.status === 'offline').size}** Offline/Invisible\n**${message.guild.members.filter(s => s.presence.status === 'streaming').size}** Streaming`, true)
         .addField("Total Channels", message.guild.channels.size, true)
         .addField("Total Roles", message.guild.roles.size, true)
         .addField("Total Bots", botCount, true)
         .addField("Total Humans", humanCount, true)
-        .addField("Server Roles", `Type **s!roles** to see \nthe Server roles`, true)
-        .addField("Server Emojis", `Type **s!emojis** to see \nthe Servers Emojis`, true)
-        .setFooter(`ID: ${message.guild.id}`, sIcon);
+        .addField("Server Roles", `Type **S!roles** to see \nthe Server roles`, true)
+        .addField("Server Emojis", `Type **S!emojis** to see \nthe Servers Emojis`, true)
+        .addField("Server Channels", 'Type **S!channels** to see \nthe Servers Channels', true)
+        .setAuthor(`${message.guild.name}`, sIcon);
     message.channel.startTyping();
     message.channel.send(serverEmbed);
     await message.channel.stopTyping();

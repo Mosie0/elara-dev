@@ -134,6 +134,7 @@ fs.readdir("./commands/Fun", (err, files) => {
         let props = require(`./commands/Fun/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 
@@ -150,6 +151,7 @@ fs.readdir("./commands/Info/", (err, files) => {
         let props = require(`./commands/Info/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 fs.readdir("./commands/Moderation/", (err, files) => {
@@ -165,6 +167,7 @@ fs.readdir("./commands/Moderation/", (err, files) => {
         let props = require(`./commands/Moderation/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 fs.readdir("./commands/BotOwner", (err, files) => {
@@ -180,6 +183,7 @@ fs.readdir("./commands/BotOwner", (err, files) => {
         let props = require(`./commands/BotOwner/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 
@@ -196,6 +200,7 @@ fs.readdir("./commands/BotOwner/RoleInfo", (err, files) => {
         let props = require(`./commands/BotOwner/RoleInfo/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 fs.readdir("./commands/BotOwner/Partners", (err, files) => {
@@ -211,6 +216,7 @@ fs.readdir("./commands/BotOwner/Partners", (err, files) => {
         let props = require(`./commands/BotOwner/Partners/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 fs.readdir("./commands/BotOwner/OwnerCommands", (err, files) => {
@@ -226,6 +232,7 @@ fs.readdir("./commands/BotOwner/OwnerCommands", (err, files) => {
         let props = require(`./commands/BotOwner/OwnerCommands/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 fs.readdir("./commands/BotOwner/MyServerCrap", (err, files) => {
@@ -241,6 +248,7 @@ fs.readdir("./commands/BotOwner/MyServerCrap", (err, files) => {
         let props = require(`./commands/BotOwner/MyServerCrap/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 // End of Getting Commands.
