@@ -18,7 +18,6 @@ bot.on("ready", async () => {
         const Discord = require('discord.js')
     let embed = new Discord.RichEmbed()
         .setColor(`RANDOM`)
-        .setThumbnail(bot.user.avatarURL)
         .setTimestamp()
         .setFooter(`Connected At`)
         .setDescription(`${bot.user} Has Successfully Connected!`)
