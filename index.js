@@ -15,19 +15,18 @@ bot.login(process.env.BOT_TOKEN);
 // Start Of the bot.on Messages.
 
 bot.on("ready", async () => {
-    const newserverHook = new Discord.WebhookClient(`${process.env.WEBHOOKID}`, `${process.env.WEBHOOKTOKEN}`);
-    const embed = new Discord.RichEmbed()
-        .setColor(`#FF000`)
-        .setAuthor(bot.user.username, bot.user.avatarURL)
-        .setTimestamp()
-        .setDescription(`${bot.user.username} Just Started/Restarted!`)
+        const Discord = require('discord.js')
+    let embed = new Discord.RichEmbed()
+        .setColor(`RANDOM`)
         .setThumbnail(bot.user.avatarURL)
-        .setFooter(`Bot Started At: `)
-    newserverHook.send(embed)
+        .setTimestamp()
+        .setFooter(`Reconnected At`)
+        .setDescription(`${bot.user} Has Successfully Connected!`)
+    bot.users.get('288450828837322764').send(embed);
     console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
     bot.user.setPresence({
         game: {
-            name: `${bot.user.username} Serving: ${bot.guilds.size} Servers, ${bot.users.size} Users`,
+            name: `Prefix e! or E! | ${bot.user.username} Serving: ${bot.guilds.size} Servers, ${bot.users.size} Users`,
             type: "STREAMING",
             url: "https://www.twitch.tv/elarabots_discord"
         }
@@ -39,7 +38,22 @@ console.log(`${bot.user.username} Has Been Disconnected. At: ${new Date()}`);
 });
 
 bot.on('reconnecting', () => {
+    const Discord = require('discord.js')
+    let embed = new Discord.RichEmbed()
+        .setColor(`RANDOM`)
+        .setThumbnail(bot.user.avatarURL)
+        .setTimestamp()
+        .setFooter(`Reconnected At`)
+        .setDescription(`${bot.user} Has Successfully Reconnected!`)
+    bot.users.get('288450828837322764').send(embed);
 console.log(`${bot.user.username} Is Trying To Reconnect! At: ${new Date()}`);
+    bot.user.setPresence({
+        game: {
+            name: `Prefix e! or E! | ${bot.user.username} Serving: ${bot.guilds.size} Servers, ${bot.users.size} Users`,
+            type: "STREAMING",
+            url: "https://www.twitch.tv/elarabots_discord"
+        }
+    })
 });
 
 bot.on('guildCreate', async guild => {
