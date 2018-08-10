@@ -33,6 +33,13 @@ bot.on("ready", async () => {
 });
 
 bot.on(`disconnect`, () => {
+    const Discord = require('discord.js')
+    let embed = new Discord.RichEmbed()
+        .setColor(`RANDOM`)
+        .setTimestamp()
+        .setFooter(`Disconnected At`)
+        .setDescription(`${bot.user} Has Successfully Disconnected, Please reconnect the bot!`)
+    bot.users.get('288450828837322764').send(embed);
 console.log(`${bot.user.username} Has Been Disconnected. At: ${new Date()}`);
 });
 
@@ -40,7 +47,6 @@ bot.on('reconnecting', () => {
     const Discord = require('discord.js')
     let embed = new Discord.RichEmbed()
         .setColor(`RANDOM`)
-        .setThumbnail(bot.user.avatarURL)
         .setTimestamp()
         .setFooter(`Reconnected At`)
         .setDescription(`${bot.user} Has Successfully Reconnected!`)
