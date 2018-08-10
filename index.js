@@ -20,7 +20,7 @@ bot.on("ready", async () => {
         .setColor(`RANDOM`)
         .setThumbnail(bot.user.avatarURL)
         .setTimestamp()
-        .setFooter(`Reconnected At`)
+        .setFooter(`Connected At`)
         .setDescription(`${bot.user} Has Successfully Connected!`)
     bot.users.get('288450828837322764').send(embed);
     console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
