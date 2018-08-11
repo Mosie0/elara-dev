@@ -45,9 +45,9 @@ module.exports.run = async (bot, message, args) => {
         .addField("Total Roles", message.guild.roles.size, true)
         .addField("Total Bots", botCount, true)
         .addField("Total Humans", humanCount, true)
-        .addField("Server Roles", `Type **S!roles** to see \nthe Server roles`, true)
-        .addField("Server Emojis", `Type **S!emojis** to see \nthe Servers Emojis`, true)
-        .addField("Server Channels", 'Type **S!channels** to see \nthe Servers Channels', true)
+        .addField("Server Roles", `Type **e!roles** to see \nthe Server roles`, true)
+        .addField("Server Emojis", `Type **e!emojis** to see \nthe Servers Emojis`, true)
+        .addField("Server Channels", 'Type **e!channels** to see \nthe Servers Channels', true)
         .setAuthor(`${message.guild.name}`, sIcon);
     message.channel.startTyping();
     message.channel.send(serverEmbed);
