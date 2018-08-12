@@ -7,8 +7,8 @@ module.exports.run = async (bot, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(nopermembed);
     message.channel.overwritePermissions(message.guild.id, { 
         SEND_MESSAGES: false,
-        READ_MESSAGES: true,
-        READ_MESSAGE_HISTORY: true,
+        READ_MESSAGES: false,
+        READ_MESSAGE_HISTORY: false,
         ADD_REACTIONS: false,
         USE_EXTERNAL_EMOJIS: false,
         CREATE_INSTANT_INVITE: false,
@@ -27,5 +27,6 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(lockembed)
 }
 module.exports.help = {
-    name: "lockdown"
+    name: "lockdown", 
+    names: "Lockdown"
 }

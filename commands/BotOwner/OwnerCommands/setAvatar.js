@@ -7,5 +7,6 @@ module.exports.run = async (bot, message, args) => {
     await message.reply("Profile Photo has been changed!");
 }
 module.exports.help = {
-    name: "setavatar"
+    name: "setavatar",
+    names: "SetAvatar"
 }

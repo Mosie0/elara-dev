@@ -18,5 +18,6 @@ module.exports.run = async (bot, message, args) => {
     process.exit(1);
 }
 module.exports.help = {
-    name: "shutdown"
+    name: "shutdown",
+    names: "Shutdown"
 }

@@ -6,5 +6,6 @@ module.exports.run = async (bot, message, args) => {
     rUser.send(reason);
 }
 module.exports.help = {
-    name: "dm"
+    name: "dm",
+    names: "Dm"
 }

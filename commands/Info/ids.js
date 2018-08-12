@@ -7,5 +7,6 @@ const embed = new Discord.RichEmbed()
 message.channel.send(embed);
 }
 module.exports.help = {
-    name: "id"
+    name: "id",
+    names: "ID"
 }

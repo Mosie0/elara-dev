@@ -15,5 +15,6 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(lockembed)
 }
 module.exports.help = {
-    name: "unlock"
+    name: "unlock",
+    names: "Unlock"
 }

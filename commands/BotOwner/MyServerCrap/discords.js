@@ -79,5 +79,6 @@ module.exports.run = async (bot, message, args) => {
     message.delete().catch();
 }
 module.exports.help = {
-    name: "discords"
+    name: "discords",
+    names: "Discords"
 }

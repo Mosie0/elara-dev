@@ -26,5 +26,6 @@ module.exports.run = async (bot, message, args) => {
     message.delete().catch();
 }
 module.exports.help = {
-    name: "SuperRules"
+    name: "SRules",
+    names: "srules"
 }

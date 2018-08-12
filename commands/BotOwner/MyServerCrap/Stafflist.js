@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
     message.delete().catch();
 }
 module.exports.help = {
-    name: "Staff"
+    name: "Staff",
+    names: "staff"
 
 }

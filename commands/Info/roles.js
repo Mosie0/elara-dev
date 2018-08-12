@@ -11,5 +11,6 @@ module.exports.run = async (bot, message, args) => {
     await message.channel.stopTyping();
 }
 module.exports.help = {
-    name: "roles"
+    name: "roles",
+    names: "Roles"
 }

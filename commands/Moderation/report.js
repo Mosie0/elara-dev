@@ -37,5 +37,6 @@ module.exports.run = async (bot, message, args) => {
     message.author.send(dmEmbed);
 }
 module.exports.help = {
-    name: "report"
+    name: "report",
+    names: "Report"
 }

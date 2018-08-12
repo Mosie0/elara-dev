@@ -13,5 +13,6 @@ module.exports.run = async (bot, message, args) => {
     message.delete().catch();
 }
 module.exports.help = {
-    name: "mod"
+    name: "mod",
+    names: "Mod"
 }

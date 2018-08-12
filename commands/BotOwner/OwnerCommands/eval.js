@@ -40,5 +40,6 @@ function clean(text) {
 
 
 module.exports.help = {
-    name: "eval"
+    name: "eval",
+    names: "ev"
 }

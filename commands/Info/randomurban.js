@@ -24,5 +24,6 @@ urban.random().first(json => {
     });
 }
 module.exports.help = {
-    name: "randomurban"
+    name: "randomurban",
+    names: "RU"
 }

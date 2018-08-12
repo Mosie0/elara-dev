@@ -6,5 +6,6 @@ module.exports.run = async (bot, message, args) => {
     await message.reply(`✅ Sent the message in ${riddleannounce} Channel`)
 }
 module.exports.help = {
-    name: "riddle"
+    name: "riddle",
+    names: "Riddle"
 }

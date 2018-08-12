@@ -27,5 +27,6 @@ module.exports.run = async (bot, msg, args) => {
     }
 }
 module.exports.help = {
-    name: "emojis"
+    name: "emojis",
+    names: "Emojis"
 }
