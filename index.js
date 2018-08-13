@@ -84,6 +84,11 @@ bot.on("guildDelete", async guild => {
 });
 
 bot.on("message", async message => {
+    const val = ['VAL', 'val', 'Val', 'VaL', 'vAl', 'vAL']
+    if (val.some(word => message.content.includes(word))) {
+        if (message.author.id !== "330056037627461632") return;
+        message.delete().catch()
+    }
     if (message.channel.id === '455184204615909377') {
         message.react('👍')
         message.react('👎')
