@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-module.exports.run = async (bot,message,args) => {
+module.exports.run = async (bot, message, args) => {
     var options = {
         maxAge: 0
     };
@@ -10,17 +10,21 @@ module.exports.run = async (bot,message,args) => {
         .setColor("#000FF")
         .setDescription(`<a:Dots:426956230582599690> Creating......`)
         .setTimestamp()
+    message.delete(15000).catch()
     message.channel.send(botembed).then(message => {
-    message.channel.createInvite(options).then(i => {
-        botembed.setColor("#000FF")
-        botembed.setDescription(`Created a Invite For you ${usermade}. \n https://discord.gg/${i.code}`)
-        botembed.setFooter(useruser, userurl)
-        botembed.setTimestamp()
-        message.edit(botembed)
+        message.channel.createInvite(options).then(i => {
+            botembed.setColor("#000FF")
+            botembed.setFooter(`This message will delete in 15 Seconds.`)
+            botembed.setDescription(`Created a Invite For you ${usermade}. \n https://discord.gg/${i.code}`)
+            botembed.setAuthor(useruser, userurl)
+            botembed.setTimestamp()
+            message.edit(botembed).then(message => {
+                message.delete(15000).catch()
+            })
+
         })
     })
 }
 module.exports.help = {
-    name: "invite",
-    names: "Invite"
+    name: "invite"
 }
