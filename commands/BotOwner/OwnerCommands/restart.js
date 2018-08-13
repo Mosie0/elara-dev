@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 
 module.exports.run = async (bot, message, args) => {
-    let modlogs = bot.channels.get('468372950266150916')
+    let modlogs = bot.channels.get(process.env.LOGCHANNEL)
     if(!modlogs) return;
     let botembed = new Discord.RichEmbed()
     .setColor("#000FF")
