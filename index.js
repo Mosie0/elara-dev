@@ -84,6 +84,10 @@ bot.on("guildDelete", async guild => {
 });
 
 bot.on("message", async message => {
+    const dab = ['!dab', `!Dab`, `!DAb`, `!DAB`, `!dAB`, `<o/`]
+    if(dab.some(word => message.content.includes(word))){
+        message.channel.send(`<a:dab:448954506420682763>`)
+    }
     const val = ['VAL', 'val', 'Val', 'VaL', 'vAl', 'vAL']
     if (val.some(word => message.content.includes(word))) {
         if (message.author.id !== "330056037627461632") return;
