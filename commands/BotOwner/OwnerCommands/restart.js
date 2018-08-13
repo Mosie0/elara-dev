@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL)
     .setTimestamp()
     console.log(`Bot Has Been Restart By: ` + message.author.username);
-    if (message.author.id !== "288450828837322764") return message.reply("Sorry But this is a Bot Owner Only Command.");
+    if (message.author.id !== "288450828837322764") return message.react(`❌`);
     await message.react("✅");
     await modlogs.send(botembed);
     message.delete(1000).catch();
