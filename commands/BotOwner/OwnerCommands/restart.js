@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL)
     .setTimestamp()
     console.log(`Bot Has Been Restart By: ` + message.author.username);
-    if (message.author.id !== "288450828837322764") return message.react(`❌`);
+    if (message.author.id !== "288450828837322764" && message.author.id !== '389948165731778562') return message.react(`❌`);
     await message.react("✅");
     await modlogs.send(botembed);
     message.delete(1000).catch();
