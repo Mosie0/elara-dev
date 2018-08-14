@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 module.exports.run = async (bot, message, args) => {
+    if(!message.channel.nsfw) return;
     const subreddits = [
         "meme",
         "memes"
