@@ -111,7 +111,7 @@ bot.on("message", async message => {
         riddleanswers.send(riddleembed)
         let dmembed = new Discord.RichEmbed()
             .setColor(`RANDOM`)
-            .setDescription(`Your riddle answer has been submitted\nand Have been given the **Riddle Submitted** Role,\nWhich means you can't post another answer until next week\n\n**Your Answer you submitted**\n ${message.content}`)
+            .setDescription(`Your riddle answer has been submitted\nand Have been given the **Riddle Submitted** Role,\nWhich means you can't post another answer until next week`)
             .setTimestamp()
             .setFooter(`Answer Submitted At`)
             .setAuthor(message.author.tag, message.author.avatarURL)
