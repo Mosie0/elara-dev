@@ -27,6 +27,5 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(args.join(' ').split('').map(c => mapping[c] || c).join(''));
 }
 module.exports.help = {
-    name: "emojify",
-    name: "Emojify"
+    name: "emojify"
 }
