@@ -13,7 +13,8 @@ module.exports.run = async (bot, message, args) => {
         'https://cdn.discordapp.com/attachments/439520700307603466/477987762193301522/image.jpg',
         'https://cdn.discordapp.com/attachments/439520700307603466/477987908985290762/image.jpg',
         'https://cdn.discordapp.com/attachments/439520700307603466/477988122320175104/image.jpg',
-        'https://cdn.discordapp.com/attachments/439520700307603466/477988525497909288/image.jpg'
+        'https://cdn.discordapp.com/attachments/439520700307603466/477988525497909288/image.jpg',
+        'https://cdn.discordapp.com/attachments/457038924104204299/480138219308974080/image.jpg'
     ]
     let result = Math.floor((Math.random() * replies.length));
     let embed = new Discord.RichEmbed()
