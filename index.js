@@ -84,14 +84,32 @@ bot.on("guildDelete", async guild => {
 });
 
 bot.on("message", async message => {
+    const swearWords = ['shit', 'anal', 'ass', 'assbang', 'assbanged', 'assbangs', 'asses', 'assfuck', 'assfucker', 'assh0le', 'asshat', 'assho1e', 'asshole', 'assholes', 'assmaster', 'assmunch', 'asswipe', 'asswipes', 'b1tch', 'bastard', 'bastards', 'beardedclam', 'beastiality', 'beatch', 'beeyotch', 'beotch', 'biatch', 'bigtits', 'bitch', 'bitched', 'bitches', 'bitchy', 'blowjob', 'blowjobs', 'bollock', 'bollocks', 'bollok', 'boner', 'boners', 'boob', 'boobies', 'boobs', 'booby', 'bukkake', 'bullshit', 'bullshits', 'bullshitted', 'bullturds', 'bung', 'busty', 'buttfuck', 'buttfucker', 'buttplug', 'c.0.c.k', 'c.o.c.k.', 'c.u.n.t', 'c0ck', 'c-0-c-k', 'caca', 'cahone', 'cameltoe', 'carpetmuncher', 'cawk', 'cervix', 'chinc', 'chincs', 'chink', 'chode', 'cl1t', 'climax', 'clit', 'clitoris', 'clitorus', 'clits', 'clitty', 'cocain', 'cocaine', 'cock', 'c-o-c-k', 'cockblock', 'cockholster', 'cockknocker', 'cocks', 'cocksmoker', 'cocksucker', 'corksucker', 'crackwhore', 'cum', 'cummin', 'cumming', 'cumshot', 'cumshots', 'cumslut', 'cumstain', 'cunilingus', 'cunnilingus', 'cunny', 'cunt', 'c-u-n-t', 'cuntface', 'cunthunter', 'cuntlick', 'cuntlicker', 'cunts', 'd1ck', 'd1ld0', 'd1ldo', 'dick', 'dickbag', 'dickdipper', 'dickface', 'dickflipper', 'dickhead', 'dickheads', 'dickish', 'dick-ish', 'dickripper', 'dicksipper', 'dickweed', 'dickwhipper', 'dickzipper', 'dike', 'dildo', 'dildos', 'dipship', 'doggie-style', 'doggy-style', 'dumass', 'dumbass', 'dumbasses', 'f.u.c.k', 'fuck', 'f-u-c-k', 'fuckass', 'fucked', 'fucker', 'fuckface', 'fuckin', 'fucking', 'fucknugget', 'fucknut', 'fuckoff', 'fucks', 'fucktard', 'fuck-tard', 'fuckup', 'fuckwad', 'fuckwit', 'fudgepacker', 'fuk', 'fvck', 'fxck', 'gtfo', 'handjob', 'j3rk0ff', 'jackass', 'jackhole', 'jackoff', 'jerk0ff', 'jerkoff', 'jism', 'jiz', 'jizm', 'jizz', 'jizzed', 'motherfucka', 'motherfucker', 'motherfucking', 'mtherfucker', 'mthrfucker', 'mthrfucking', 'muthafuckaz', 'muthafucker', 'mutherfucker', 'mutherfucking', 'muthrfucking', 'nazi', 'nazism', 'negro', 'nigga', 'niggah', 'niggas', 'niggaz', 'nigger', 'niggers', 'niggle', 'niglet', 'pissed', 'pissoff', 'piss-off', 'porn', 'porno', 'pussies', 'pussy', 'pussypounder', 's.h.i.t.', 'sh1t', 's-h-1-t', 'shamedame', 's-h-i-t', 'shite', 'shiteater', 'shitface', 'shithead', 'shithole', 'shithouse', 'shits', 'shitt', 'shitted', 'shitter', 'shitty', 'shiz', 'slut', 'slutdumper', 'sluts', 'dicks'];
+    if (swearWords.some(word => message.content.includes(word))) {
+        if(message.guild.id !== "424200844666208265") return;
+        if (message.author.bot) return;
+        if (message.member.hasPermission('MANAGE_GUILD')) return;
+        const modlogs = message.guild.channels.find('name', 'modlogs')
+        if (!modlogs) return console.log(`Can't find a Modlogs channel in ${message.guild.name}`);
+        const Userembed = new Discord.RichEmbed()
+            .setColor(`#FF0000`)
+            .setDescription(`You said a Filtered Word in **${message.guild.name}** Watch your Language!\n**Server Moderators has been Notified. [WARNING]**`)
+        const warnembed = new Discord.RichEmbed()
+            .setColor(`#FF0000`)
+            .setDescription(`Filtered Word was used`)
+            .setFooter(`Filtered Word used at: `, message.author.avatarURL)
+            .setTimestamp()
+            .addField(`User`, `${message.author}\n(**${message.author.tag}**)`, true)
+            .addField(`Channel`, `<#${message.channel.id}>\n${message.channel.name}`, true)
+            .addField(`Content`, `${message.content}`)
+        modlogs.send(warnembed)
+        message.author.send(Userembed)
+        message.delete().catch()
+        message.channel.send(`${message.author} Has been warned Filtered Word. [WARNING]`).then(message => { message.delete(10000).catch() })
+    }
     const dab = ['!dab', `!Dab`, `!DAb`, `!DAB`, `!dAB`, `<o/`]
     if(dab.some(word => message.content.includes(word))){
         message.channel.send(`<a:dab:448954506420682763>`)
-    }
-    const val = ['VAL', 'val', 'Val', 'VaL', 'vAl', 'vAL']
-    if (val.some(word => message.content.includes(word))) {
-        if (message.author.id !== "330056037627461632") return;
-        message.delete().catch()
     }
     if (message.channel.id === '455184204615909377') {
         message.react('👍')
