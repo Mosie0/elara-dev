@@ -354,6 +354,9 @@ bot.on("message", async message => {
     }, cdseconds * 1000)
 
 });
+process.on('unhandledRejection', error => {
+    console.error(`ERROR: \n${error}`);
+});
 // End of the bot.on Messages.
 //==============================================================================================================================================================================================
 // Start of Getting and Loading the Commands
