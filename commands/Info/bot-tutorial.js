@@ -10,5 +10,6 @@ const embed = new Discord.RichEmbed()
 message.channel.send(embed)
 }
 module.exports.help = {
-    name: "bothelp"
+    name: "bothelp",
+    names: "Bothelp"
 }

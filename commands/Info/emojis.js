@@ -1,30 +1,21 @@
 const Discord = require('discord.js');
 module.exports.run = async (bot, msg, args) => {
-    if (msg.guild.emojis.size === 0) {
-        return msg.channel.send('There are no emojis on this server.');
-    }
-    else if (msg.guild.emojis.map(e => e).join(' ').length > 2048) {
-        let s = msg.guild.emojis.map(e => e).join(' ');
-        let i = Math.ceil(s.length / 2);
-        let partOne = s.slice(0, i).trim();
-        let partTwo = s.slice(i + 1, s.length).trim();
-        let embed1 = new Discord.RichEmbed()
-            .setColor(`#FF000`)
-            .setTitle(`Current Server Emojis`)
-            .setDescription(`${partOne}`)
-        msg.channel.send(embed1);
-        let embed2 = new Discord.RichEmbed()
-            .setColor(`#FF000`)
-            .setDescription(`${partTwo}`)
-        msg.channel.send(embed2);
-    }
-    else {
-        let embed = new Discord.RichEmbed()
-        .setColor(`#FF000`)
-        .setTitle(`Current Server Emojis`)
-        .setDescription(`${msg.guild.emojis.map(e => e).join(' ')}`)
-        msg.channel.send(embed);
-    }
+    let animEmotes = [],
+        staticEmotes = [];
+
+    msg.guild.emojis.forEach((e) => {
+        e.animated ? animEmotes.push(`<a:${e.name}:${e.id}>`) : staticEmotes.push(`<:${e.name}:${e.id}>`);
+    });
+    staticEmotes = staticEmotes.length !== 0 ? `__**[${staticEmotes.length}] Normal Emotes**__\n${staticEmotes.join('')}` : '';
+    animEmotes = animEmotes.length !== 0 ? `\n\n__**[${animEmotes.length}] Animated Emotes**__\n${animEmotes.join('')}` : '';
+
+    let botembed = new Discord.RichEmbed()
+    .setColor(`RANDOM`)
+    .setDescription(staticEmotes + animEmotes)
+    .setAuthor(`${msg.guild.name} Emojis`, msg.guild.iconURL)
+    .setTimestamp()
+    msg.channel.send(botembed)
+
 }
 module.exports.help = {
     name: "emojis",

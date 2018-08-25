@@ -22,9 +22,9 @@ module.exports.run = async (bot, message, args) => {
         .addField(`Role Permissions`, `[Click Here](https://discordapi.com/permissions.html#${role.permissions})`, true)
         .setFooter(`Role Created`)
         .setTimestamp(role.createdAt)
-    message.channel.send(embed)
+        message.channel.send(embed)
 }
 module.exports.help = {
     name: "roleinfo",
-    names: "rinfo"
+    names: "Roleinfo"
 }

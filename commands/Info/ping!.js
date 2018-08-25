@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-
 module.exports.run = async (bot, message, args) => {
     const useruser = "Command Ran By: " + message.author.username;
     const userurl = message.author.avatarURL;

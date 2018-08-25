@@ -6,7 +6,7 @@ function checkDays(date) {
     return days + (days == 1 ? " day" : " days") + " ago";
 };
 module.exports.run = async (bot, message, args) => {
-    let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
+    let verifLevels = ["None", "Low\nmust have verified\nemail on account", "Medium - must be registered on Discord for longer than 5 minutes", "High -  (╯°□°）╯︵ ┻━┻ - must be a member of the server for longer than 10 minutes", "Very High - ┻━┻ミヽ(ಠ益ಠ)ﾉ彡┻━┻ - must have a verified phone number"];
     let region = {
         "brazil": "Brazil",
         "eu-central": "Central Europe",
@@ -40,11 +40,11 @@ module.exports.run = async (bot, message, args) => {
         .addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
         .setTimestamp()
         .addField("Total Members", message.guild.memberCount, true)
-        .addField(`Member Status`, `**${message.guild.members.filter(o => o.presence.status === 'online').size}** Online\n**${message.guild.members.filter(i => i.presence.status === 'idle').size}** Idle/Away\n**${message.guild.members.filter(dnd => dnd.presence.status === 'dnd').size}** Do Not Disturb\n**${message.guild.members.filter(off => off.presence.status === 'offline').size}** Offline/Invisible\n**${message.guild.members.filter(s => s.presence.status === 'streaming').size}** Streaming`, true)
         .addField("Total Channels", message.guild.channels.size, true)
         .addField("Total Roles", message.guild.roles.size, true)
         .addField("Total Bots", botCount, true)
         .addField("Total Humans", humanCount, true)
+        .addField(`Member Status`, `**${message.guild.members.filter(o => o.presence.status === 'online').size}** Online\n**${message.guild.members.filter(i => i.presence.status === 'idle').size}** Idle/Away\n**${message.guild.members.filter(dnd => dnd.presence.status === 'dnd').size}** Do Not Disturb\n**${message.guild.members.filter(off => off.presence.status === 'offline').size}** Offline/Invisible`, true)
         .addField("Server Roles", `Type **e!roles** to see \nthe Server roles`, true)
         .addField("Server Emojis", `Type **e!emojis** to see \nthe Servers Emojis`, true)
         .addField("Server Channels", 'Type **e!channels** to see \nthe Servers Channels', true)

@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     .addField(`Server`, `${servername}`, true)
     .addField(`Reason`, `${reason}`)
     rUser.send(rUserembed);
-    let reportschannel = message.guild.channels.find(`name`, "modlogs");
+    let reportschannel = message.guild.channels.find(c => c.name === "modlogs") || message.guild.channels.find(c => c.name === "bot-hell")
     if (!reportschannel) return message.channel.send("Couldn't find modlogs");
     message.delete().catch();
     reportschannel.send(reportEmbed);

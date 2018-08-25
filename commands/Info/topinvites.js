@@ -1,13 +1,13 @@
 const Discord = require('discord.js'),
     arraySort = require('array-sort'),
-    table = require('table');
+    table = require('table'); 
 module.exports.run = async (bot, message, args) => {
-    let invites = await message.guild.fetchInvites().catch(error => {
+    let invites = await message.guild.fetchInvites().catch(error => { 
         return message.channel.send('Sorry, I don\'t have the proper permissions to view invites!');
     })
     invites = invites.array();
     arraySort(invites, 'uses', { reverse: true });
-    let possibleInvites = [['User', 'Uses']];
+    let possibleInvites = [['User', 'Uses']]; 
     invites.forEach(function (invite) {
         possibleInvites.push([invite.inviter.username, invite.uses]);
     })
@@ -18,5 +18,5 @@ module.exports.run = async (bot, message, args) => {
 }
 module.exports.help = {
     name: "topinvites",
-    names: "Topinvites"
+    names: "TopInvites"
 }

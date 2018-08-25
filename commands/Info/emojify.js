@@ -1,4 +1,4 @@
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot,message,args) => {
     const mapping = {
         ' ': '   ',
         '0': ':zero:',
@@ -27,5 +27,6 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(args.join(' ').split('').map(c => mapping[c] || c).join(''));
 }
 module.exports.help = {
-    name: "emojify"
+    name: "emojify",
+    names: "Emojify"
 }

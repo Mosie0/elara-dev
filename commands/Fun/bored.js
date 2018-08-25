@@ -7,8 +7,6 @@ module.exports.run = async (bot,message,args) =>{
     .setColor("#000FF")
     .setFooter("BORED")
     .setImage(bicon);
-
-message.delete().catch()
 message.channel.send(botembed);
 }
 module.exports.help = {

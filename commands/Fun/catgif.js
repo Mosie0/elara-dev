@@ -29,5 +29,6 @@ module.exports.run = async (bot, message, args) => {
     });
 }
 module.exports.help = {
-    name: "catgif"
+    name: "catgif",
+    names: "Catgif"
 }

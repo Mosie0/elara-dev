@@ -49,5 +49,6 @@ module.exports.run = async (bot,msg,args) => {
     msg.channel.send(output);
 }
 module.exports.help = {
-    name: "tiny"
+    name: "tiny",
+    names: "Tiny"
 }

@@ -8,5 +8,6 @@ module.exports.run = async (bot, msg, args) => {
     msg.reply(random());
 }
 module.exports.help = {
-    name: "rps"
+    name: "rps",
+    names: "RPS"
 }

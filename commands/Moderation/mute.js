@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if(!modlogs) return message.channel.send("Can't find **modlogs**");
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!tomute) return message.reply("Couldn't find user.");
-    if (tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!");
+    if (tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry but i can't mute Mods/Admins!");
     let muterole = message.guild.roles.find(`name`, `Muted`);
     let reason = args[2];
     if (!muterole) {
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
             message.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(muterole, {
                     SEND_MESSAGES: false,
-                    READ_MESSAGES: true,
+                    READ_MESSAGES: false,
                     ADD_REACTIONS: false
                 });
             });

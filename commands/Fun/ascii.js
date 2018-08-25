@@ -9,5 +9,5 @@ figlet(args.join(' '), (err, data) => {
 }
 module.exports.help = { 
     name: "ascii",
-    aliases: 'Ascii'
+    names: 'Ascii'
 }

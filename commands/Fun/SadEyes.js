@@ -8,6 +8,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(botembed);
 }
 module.exports.help = {
-    name: "Sadeyes"
+    name: "Sadeyes",
+    names: "sadeyes"
 
 }

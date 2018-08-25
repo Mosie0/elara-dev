@@ -1,27 +1,22 @@
 const Discord = require("discord.js");
 const fs = require('fs');
-
+const config = require('../../../config.js')
 module.exports.run = async (bot, message, args) => {
-    let modlogs = bot.channels.get(process.env.LOGCHANNEL)
-    if(!modlogs) return;
+    let modlogs = bot.channels.get(process.env.LOG_CHANNEL) || bot.channel.get(config.logchannel);
     let botembed = new Discord.RichEmbed()
-    .setColor("#000FF")
-    .addField("Restart Issued", `<@${message.author.id}> Has Restarted the Bot!`)
-    .setThumbnail(bot.user.avatarURL)
-    .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL)
-    .setTimestamp()
-    console.log(`Bot Has Been Restart By: ` + message.author.username);
-    if (message.author.id !== "288450828837322764" && message.author.id !== '389948165731778562') return message.react(`❌`);
+        .setColor("#000FF")
+        .addField("Restart Issued", `<@${message.author.id}> Has Restarted the Bot!`)
+        .setThumbnail(bot.user.avatarURL)
+        .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL)
+        .setTimestamp()
+    if (message.author.id !== "288450828837322764") return message.react(`❌`);
     await message.react("✅");
     await modlogs.send(botembed);
-    message.delete(1000).catch();
-    fs.writeFile('./log.json', JSON.stringify(`Bot has Been Restarted.`), (err) => {
-        if (err) console.log(err)
-    });
+    message.delete().catch();
     process.exit();
 
 }
 module.exports.help = {
     name: "restart",
-    names: "Restart"
+    names: "RT"
 }
