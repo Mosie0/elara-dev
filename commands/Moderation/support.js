@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const config = require('../../config.js')
 module.exports.run = async (bot, message, args) => {
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`Sorry But you need the **Manage Server Permission** To Run this command!`)
     let logchannel = bot.channels.get(config.support)
     var options = {
         maxAge: 0
@@ -10,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
     let server = message.guild;
     let Schannel = message.channel;
     let reason = args.join(' ');
+    if(!reason) return message.reply(`Please Provide a reason for this Support request!`)
     message.delete().catch()
     let embed = new Discord.RichEmbed()
         .setColor("#000FF")
