@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require('../../../config.js')
 module.exports.run = async (bot, message, args) => {
-    let logchannel = bot.channels.get(config.logchannel)
+    let logchannel = bot.channels.get(config.logchannel) || bot.channels.get(process.env.LOGCHANNEL)
     let botembed = new Discord.RichEmbed()
         .setColor("#000FF")
         .addField("ShutDown Issued", `<@${message.author.id}> Has ShutDown ${bot.user.username}`)

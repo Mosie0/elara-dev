@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     try {
         if (message.author.id !== "288450828837322764") return message.react(`❌`);
         let oldbotname = bot.user.username;
-        let logchannel = bot.channels.get(process.env.LOG_CHANNEL) || bot.channels.get(config.logchannel)
+        let logchannel = bot.channels.get(process.env.LOGCHANNEL) || bot.channels.get(config.logchannel)
         let newbotname = args.join(" ");
         bot.user.setUsername(newbotname);
         await message.react(`476629550797684736`)

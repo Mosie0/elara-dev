@@ -15,7 +15,7 @@ bot.login(process.env.BOT_TOKEN);
 // Start Of the bot.on Messages.
 
 bot.on("ready", async () => {
-    console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
+    console.log(`${bot.user.username} Is Online and Serving: ${bot.guilds.size} Servers, ${bot.channels.size} Channels, ${bot.users.size} Users`);
     require('./playing.js')(bot)
 });
 bot.on(`disconnect`, () => {

@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const config = require('../../../config.js')
 module.exports.run = async (bot, message, args) => {
-    let modlogs = bot.channels.get(process.env.LOG_CHANNEL) || bot.channel.get(config.logchannel);
+    let modlogs = bot.channels.get(process.env.LOGCHANNEL) || bot.channels.get(config.logchannel);
     let botembed = new Discord.RichEmbed()
         .setColor("#000FF")
         .addField("Restart Issued", `<@${message.author.id}> Has Restarted the Bot!`)
