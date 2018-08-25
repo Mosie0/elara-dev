@@ -9,9 +9,9 @@ module.exports.run = async (bot, msg, args) => {
 
         infoEmbed
             .setColor(msg.guild ? msg.guild.me.displayHexColor : '#7CFC00')
-            .setTitle(`Discord Bots Info for ${info.username}#${info.discriminator} (${info.client.id})`)
-            .setURL(`https://discordbots.org/bot/${info.client.id}`)
-            .setThumbnail(`https://images.discordapp.net/avatars/${info.client.id}/${info.avatar}.png`)
+            .setTitle(`Discord Bots Info for ${info.username}#${info.discriminator} (${info.clientid})`)
+            .setURL(`https://discordbots.org/bot/${info.clientid}`)
+            .setThumbnail(`https://images.discordapp.net/avatars/${info.clientid}/${info.avatar}.png`)
             .setDescription(info.shortdesc)
             .setFooter(`${info.username}#${info.discriminator} was submitted`)
             .setTimestamp(moment(info.date)._d)
@@ -21,7 +21,7 @@ module.exports.run = async (bot, msg, args) => {
             .addField('Shards Count', info.shards.length, true)
             .addField('Invite Link', `[Click Here](${info.invite})`);
 
-        return msg.embed(infoEmbed, `https://discordbots.org/bot/${info.client.id}`);
+        return msg.embed(infoEmbed, `https://discordbots.org/bot/${info.clientid}`);
     } catch (err) {
         console.log(err)
         return msg.reply('an error occurred getting info from that bot, are you sure it exists on the website?');
