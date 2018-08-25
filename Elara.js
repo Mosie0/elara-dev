@@ -15,13 +15,6 @@ bot.login(process.env.BOT_TOKEN);
 // Start Of the bot.on Messages.
 
 bot.on("ready", async () => {
-    const Discord = require('discord.js')
-    let embed = new Discord.RichEmbed()
-        .setColor(`RANDOM`)
-        .setTimestamp()
-        .setFooter(`Connected At`)
-        .setDescription(`${bot.user} Has Successfully Connected!`)
-    bot.channels.get(process.env.LOG_CHANNEL).send(embed);
     console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
     require('./playing.js')(bot)
 });
