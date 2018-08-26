@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 module.exports.run = async (bot, message, args) => {
     try {
+        if (args[0] === "help") {
+            message.channel.send(`${this.help.usage}`);
+            return;
+        }
         let search = args.join(' ') || args[0];
         if (!search) return message.channel.send(`You need to provide a name or ID of the Emoji.`)
         let emoji = bot.emojis.find('name', search) || bot.emojis.find('id', search)
@@ -22,5 +26,6 @@ module.exports.run = async (bot, message, args) => {
 }
 module.exports.help = {
     name: "emojifind",
-    names: "emote"
+    names: "emote",
+    usage: "e!emote <name or ID here>"
 }
