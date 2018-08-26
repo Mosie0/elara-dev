@@ -2,7 +2,12 @@ const Discord = require('discord.js');
 module.exports.run = async (bot, message, args) => {
     try {
         if (args[0] === "help") {
-            message.channel.send(`${this.help.usage}`);
+            let embeds = new Discord.RichEmbed()
+                .setColor(`RANDOM`)
+                .setTitle(`**${this.help.usage}**`)
+                .setTimestamp()
+                .setFooter(`Don't include <> in the command`, message.author.avatarURL)
+            message.channel.send(embeds);
             return;
         }
         let search = args.join(' ') || args[0];
