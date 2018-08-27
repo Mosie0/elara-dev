@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
-const keys = process.env.FORTNITEAPI;
+const keys = require('../../botconfig.json');
 const Client = require('fortnite');
-const fortnite = new Client(keys.fortnite)
+const fortnite = new Client(process.env.FORTNITEAPI)
 module.exports.run = async (bot, message, args) => {
     let username = args[0];
     let platform = args[1] || 'pc';
-    if (!platform) return message.channel.send(`Please Provide a Platform!`)
-    if (!username) return message.channel.send(`Please provide a username!`);
+    if (!platform) return message.channel.send(`Please Provide a Platform! [${keys.prefix}fortnite username xbl or pc or psn]`)
+    if (!username) return message.channel.send(`Please Provide a Username! [${keys.prefix}fortnite username xbl or pc or psn]`);
     let data = fortnite.user(username, platform).then(data => {
         let stats = data.stats;
         let lifetime = stats.lifetime;
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(embed)
 
     }).catch(error => {
-        message.channel.send(`Nothing for that person.\nPlease make sure you are searching the right Platform/User\ned!fortnite **UsernameHere** Platformhere`);
+        message.channel.send(`Nothing for that person.\nPlease make sure you are searching the right Platform/User\n${keys.prefix}fortnite **UsernameHere** Platformhere`);
 
     })
 }
