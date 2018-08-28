@@ -47,7 +47,7 @@ bot.on('guildMemberUpdate', async (oldMember, newMember) => {
     modlogs.send(embed)
 })
 bot.on("emojiCreate", async (emoji, bot) => {
-    let modlogs = emoji.guild.channels.find(c => c.name === "modlogs") || emoji.guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = emoji.guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let embed = new Discord.RichEmbed()
         .setColor(`GREEN`)
@@ -63,7 +63,7 @@ bot.on("emojiCreate", async (emoji, bot) => {
     modlogs.send(embed)
 });
 bot.on("emojiDelete", async (emoji, bot) => {
-    let modlogs = emoji.guild.channels.find(c => c.name === "modlogs") || emoji.guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = emoji.guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let embed = new Discord.RichEmbed()
         .setColor(`RED`)
@@ -79,7 +79,7 @@ bot.on("emojiDelete", async (emoji, bot) => {
     modlogs.send(embed)
 });
 bot.on("emojiUpdate", async (oldEmoji, newEmoji) => {
-    let modlogs = newEmoji.guild.channels.find(c => c.name === "modlogs") || newEmoji.guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = newEmoji.guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let embed = new Discord.RichEmbed()
         .setColor(`PURPLE`)
@@ -96,7 +96,7 @@ bot.on("emojiUpdate", async (oldEmoji, newEmoji) => {
     modlogs.send(embed)
 });
 bot.on("guildMemberAdd", async member => {
-    let modlogs = member.guild.channels.find(c => c.name === "modlogs") || member.guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = member.guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#1CFF00")
@@ -109,7 +109,7 @@ bot.on("guildMemberAdd", async member => {
 
 });
 bot.on("guildMemberRemove", async member => {
-    let modlogs = member.guild.channels.find(c => c.name === "modlogs") || member.guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = member.guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#FF0000")
@@ -121,7 +121,7 @@ bot.on("guildMemberRemove", async member => {
     modlogs.send(botembed);
 });
 bot.on(`guildBanAdd`, (guild, user) => {
-    let modlogs = guild.channels.find(c => c.name === "modlogs") || guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#FF0000")
@@ -133,7 +133,7 @@ bot.on(`guildBanAdd`, (guild, user) => {
     modlogs.send(botembed);
 });
 bot.on(`guildBanRemove`, (guild, user) => {
-    let modlogs = guild.channels.find(c => c.name === "modlogs") || guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#12FF00")
@@ -146,7 +146,7 @@ bot.on(`guildBanRemove`, (guild, user) => {
 });
 bot.on(`channelCreate`, async channel => {
     let guild = channel.guild;
-    let modlogs = guild.channels.find(c => c.name === "modlogs") || guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#FF000")
@@ -158,7 +158,7 @@ bot.on(`channelCreate`, async channel => {
 });
 bot.on(`channelDelete`, channel => {
     let guild = channel.guild;
-    let modlogs = guild.channels.find(c => c.name === "modlogs") || guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#FF0000")
@@ -208,7 +208,7 @@ bot.on("guildDelete", async guild => {
 });
 bot.on(`messageDelete`, message => {
     if (message.author.bot) return;
-    let modlogs = message.guild.channels.find(c => c.name === "modlogs") || message.guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = message.guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#FF0000")
@@ -220,7 +220,7 @@ bot.on(`messageDelete`, message => {
 });
 bot.on(`messageUpdate`, (oldMessage, newMessage) => {
     if (newMessage.author.bot) return;
-    let modlogs = oldMessage.guild.channels.find(c => c.name === "modlogs") || newMessage.guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = oldMessage.guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#FF0000")
@@ -232,7 +232,7 @@ bot.on(`messageUpdate`, (oldMessage, newMessage) => {
 });
 bot.on('roleCreate', role => {
     let guild = role.guild;
-    let modlogs = guild.channels.find(c => c.name === "modlogs") || guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#FF000")
@@ -245,7 +245,7 @@ bot.on('roleCreate', role => {
 });
 bot.on('roleDelete', role => {
     let guild = role.guild;
-    let modlogs = guild.channels.find(c => c.name === "modlogs") || guild.channels.find(c => c.name === "bot-hell")
+    let modlogs = guild.channels.find(c => c.name === "modlogs");
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#FF000")
