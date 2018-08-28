@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     if(!args[0]) return message.reply("Please ask a full question!");
     let replies = ["Yes.", "No", "I don't know", "Ask Again Later"];
     let result = Math.floor((Math.random() * replies.length));
-    let question = args.slice(1).join(" ");
+    let question = args.join(" ");
     let ballembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor("#000FF")
