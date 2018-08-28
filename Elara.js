@@ -32,6 +32,20 @@ bot.on('reconnecting', () => {
     bot.channels.get('468372950266150916').send(embed);
     require('./playing.js')(bot)
 });
+bot.on('guildMemberUpdate', async (oldMember, newMember) => {
+    let modlogs = oldMember.guild.channels.find(c => c.name === "modlogs");
+    if (!modlogs) return;
+    if (newMember.nickname === oldMember.nickname) return
+    let embed = new Discord.RichEmbed()
+        .setColor(`RANDOM`)
+        .setAuthor(newMember.user.tag, newMember.user.avatarURL)
+        .setThumbnail(newMember.user.avatarURL)
+        .setTitle(`Nickname Changed`)
+        .addField(`Old Nickname`, `${oldMember.nickname ? `${oldMember.nickname}` : `${oldMember.user.username}`}`, true)
+        .addField(`New Nickname`, `${newMember.nickname ? `${newMember.nickname}` : `${newMember.user.username}`}`, true)
+        .setTimestamp()
+    modlogs.send(embed)
+})
 bot.on("emojiCreate", async (emoji, bot) => {
     let modlogs = emoji.guild.channels.find(c => c.name === "modlogs") || emoji.guild.channels.find(c => c.name === "bot-hell")
     if (!modlogs) return;
@@ -83,8 +97,6 @@ bot.on("emojiUpdate", async (oldEmoji, newEmoji) => {
 });
 bot.on("guildMemberAdd", async member => {
     let modlogs = member.guild.channels.find(c => c.name === "modlogs") || member.guild.channels.find(c => c.name === "bot-hell")
-    let generalchat = member.guild.channels.find(c => c.name === "bot-hell");
-    generalchat.send(`${member} Has just joined the server!`)
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
         .setColor("#1CFF00")
@@ -97,8 +109,6 @@ bot.on("guildMemberAdd", async member => {
 
 });
 bot.on("guildMemberRemove", async member => {
-    let generalchat = member.guild.channels.find('name', 'bot-hell');
-    generalchat.send(`${member} Has just left the server!`)
     let modlogs = member.guild.channels.find(c => c.name === "modlogs") || member.guild.channels.find(c => c.name === "bot-hell")
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
@@ -111,8 +121,6 @@ bot.on("guildMemberRemove", async member => {
     modlogs.send(botembed);
 });
 bot.on(`guildBanAdd`, (guild, user) => {
-    let generalchat = guild.channels.find(c => c.name === "bot-hell");
-    generalchat.send(`${user} Has just been Banned From The Server!`)
     let modlogs = guild.channels.find(c => c.name === "modlogs") || guild.channels.find(c => c.name === "bot-hell")
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
@@ -125,9 +133,6 @@ bot.on(`guildBanAdd`, (guild, user) => {
     modlogs.send(botembed);
 });
 bot.on(`guildBanRemove`, (guild, user) => {
-    let generalchat = guild.channels.find(c => c.name === "bot-hell");
-    if (!generalchat) return;
-    generalchat.send(`${user} Has just been Unbanned From The Server!`)
     let modlogs = guild.channels.find(c => c.name === "modlogs") || guild.channels.find(c => c.name === "bot-hell")
     if (!modlogs) return;
     let botembed = new Discord.RichEmbed()
@@ -164,13 +169,7 @@ bot.on(`channelDelete`, channel => {
     modlogs.send(botembed);
 });
 bot.on('guildCreate', async guild => {
-    bot.user.setPresence({
-        game: {
-            name: `Prefix e! or E! | ${bot.user.username} Serving: ${bot.guilds.size} Servers, ${bot.users.size} Users`,
-            type: "STREAMING",
-            url: "https://www.twitch.tv/elarabots_discord"
-        }
-    })
+    require('./playing.js')(bot)
     const newserverembed = new Discord.RichEmbed()
         .setColor(`#FF000`)
         .setDescription(`Server Added`)
@@ -189,13 +188,7 @@ bot.on('guildCreate', async guild => {
 
 });
 bot.on("guildDelete", async guild => {
-    bot.user.setPresence({
-        game: {
-            name: `Prefix e! or E! | ${bot.user.username} Serving: ${bot.guilds.size} Servers, ${bot.users.size} Users`,
-            type: "STREAMING",
-            url: "https://www.twitch.tv/elarabots_discord"
-        }
-    })
+    require('./playing.js')(bot)
     const Deletedserverembed = new Discord.RichEmbed()
         .setAuthor(bot.user.username, bot.user.avatarURL)
         .setColor(`#FF000`)
@@ -263,7 +256,6 @@ bot.on('roleDelete', role => {
     modlogs.send(botembed);
 
 });
-
 
 bot.on("message", async message => {
     const swearWords = ['shit', 'anal', 'ass', 'assbang', 'assbanged', 'assbangs', 'asses', 'assfuck', 'assfucker', 'assh0le', 'asshat', 'assho1e', 'asshole', 'assholes', 'assmaster', 'assmunch', 'asswipe', 'asswipes', 'b1tch', 'bastard', 'bastards', 'beardedclam', 'beastiality', 'beatch', 'beeyotch', 'beotch', 'biatch', 'bigtits', 'bitch', 'bitched', 'bitches', 'bitchy', 'blowjob', 'blowjobs', 'bollock', 'bollocks', 'bollok', 'boner', 'boners', 'boob', 'boobies', 'boobs', 'booby', 'bukkake', 'bullshit', 'bullshits', 'bullshitted', 'bullturds', 'bung', 'busty', 'buttfuck', 'buttfucker', 'buttplug', 'c.0.c.k', 'c.o.c.k.', 'c.u.n.t', 'c0ck', 'c-0-c-k', 'caca', 'cahone', 'cameltoe', 'carpetmuncher', 'cawk', 'cervix', 'chinc', 'chincs', 'chink', 'chode', 'cl1t', 'climax', 'clit', 'clitoris', 'clitorus', 'clits', 'clitty', 'cocain', 'cocaine', 'cock', 'c-o-c-k', 'cockblock', 'cockholster', 'cockknocker', 'cocks', 'cocksmoker', 'cocksucker', 'corksucker', 'crackwhore', 'cum', 'cummin', 'cumming', 'cumshot', 'cumshots', 'cumslut', 'cumstain', 'cunilingus', 'cunnilingus', 'cunny', 'cunt', 'c-u-n-t', 'cuntface', 'cunthunter', 'cuntlick', 'cuntlicker', 'cunts', 'd1ck', 'd1ld0', 'd1ldo', 'dick', 'dickbag', 'dickdipper', 'dickface', 'dickflipper', 'dickhead', 'dickheads', 'dickish', 'dick-ish', 'dickripper', 'dicksipper', 'dickweed', 'dickwhipper', 'dickzipper', 'dike', 'dildo', 'dildos', 'dipship', 'doggie-style', 'doggy-style', 'dumass', 'dumbass', 'dumbasses', 'f.u.c.k', 'fuck', 'f-u-c-k', 'fuckass', 'fucked', 'fucker', 'fuckface', 'fuckin', 'fucking', 'fucknugget', 'fucknut', 'fuckoff', 'fucks', 'fucktard', 'fuck-tard', 'fuckup', 'fuckwad', 'fuckwit', 'fudgepacker', 'fuk', 'fvck', 'fxck', 'gtfo', 'handjob', 'j3rk0ff', 'jackass', 'jackhole', 'jackoff', 'jerk0ff', 'jerkoff', 'jism', 'jiz', 'jizm', 'jizz', 'jizzed', 'motherfucka', 'motherfucker', 'motherfucking', 'mtherfucker', 'mthrfucker', 'mthrfucking', 'muthafuckaz', 'muthafucker', 'mutherfucker', 'mutherfucking', 'muthrfucking', 'nazi', 'nazism', 'negro', 'nigga', 'niggah', 'niggas', 'niggaz', 'nigger', 'niggers', 'niggle', 'niglet', 'pissed', 'pissoff', 'piss-off', 'porn', 'porno', 'pussies', 'pussy', 'pussypounder', 's.h.i.t.', 'sh1t', 's-h-1-t', 'shamedame', 's-h-i-t', 'shite', 'shiteater', 'shitface', 'shithead', 'shithole', 'shithouse', 'shits', 'shitt', 'shitted', 'shitter', 'shitty', 'shiz', 'slut', 'slutdumper', 'sluts', 'dicks'];
