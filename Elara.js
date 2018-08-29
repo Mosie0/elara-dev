@@ -258,6 +258,17 @@ bot.on('roleDelete', role => {
 });
 
 bot.on("message", async message => {
+    let invites = ['discord.gg/', 'https://discord.gg/']
+    if (invites.some(word => message.content.includes(word))) {
+        if(message.guild.id !== "371105897570631691") return;
+        if (message.author.bot) return;
+        if (message.member.hasPermission('MANAGE_MESSAGES')) return;
+        message.delete().catch()
+        message.author.send(`Posting a Invite in **${message.guild.name}** isn't allowed! [WARNING]`)
+        message.channel.send(`${message.author} Stop Posting Discord Invites! **[WARNING]**`).then(message => {
+            message.delete(10000).catch()
+        })
+    }
     const swearWords = ['shit', 'anal', 'ass', 'assbang', 'assbanged', 'assbangs', 'asses', 'assfuck', 'assfucker', 'assh0le', 'asshat', 'assho1e', 'asshole', 'assholes', 'assmaster', 'assmunch', 'asswipe', 'asswipes', 'b1tch', 'bastard', 'bastards', 'beardedclam', 'beastiality', 'beatch', 'beeyotch', 'beotch', 'biatch', 'bigtits', 'bitch', 'bitched', 'bitches', 'bitchy', 'blowjob', 'blowjobs', 'bollock', 'bollocks', 'bollok', 'boner', 'boners', 'boob', 'boobies', 'boobs', 'booby', 'bukkake', 'bullshit', 'bullshits', 'bullshitted', 'bullturds', 'bung', 'busty', 'buttfuck', 'buttfucker', 'buttplug', 'c.0.c.k', 'c.o.c.k.', 'c.u.n.t', 'c0ck', 'c-0-c-k', 'caca', 'cahone', 'cameltoe', 'carpetmuncher', 'cawk', 'cervix', 'chinc', 'chincs', 'chink', 'chode', 'cl1t', 'climax', 'clit', 'clitoris', 'clitorus', 'clits', 'clitty', 'cocain', 'cocaine', 'cock', 'c-o-c-k', 'cockblock', 'cockholster', 'cockknocker', 'cocks', 'cocksmoker', 'cocksucker', 'corksucker', 'crackwhore', 'cum', 'cummin', 'cumming', 'cumshot', 'cumshots', 'cumslut', 'cumstain', 'cunilingus', 'cunnilingus', 'cunny', 'cunt', 'c-u-n-t', 'cuntface', 'cunthunter', 'cuntlick', 'cuntlicker', 'cunts', 'd1ck', 'd1ld0', 'd1ldo', 'dick', 'dickbag', 'dickdipper', 'dickface', 'dickflipper', 'dickhead', 'dickheads', 'dickish', 'dick-ish', 'dickripper', 'dicksipper', 'dickweed', 'dickwhipper', 'dickzipper', 'dike', 'dildo', 'dildos', 'dipship', 'doggie-style', 'doggy-style', 'dumass', 'dumbass', 'dumbasses', 'f.u.c.k', 'fuck', 'f-u-c-k', 'fuckass', 'fucked', 'fucker', 'fuckface', 'fuckin', 'fucking', 'fucknugget', 'fucknut', 'fuckoff', 'fucks', 'fucktard', 'fuck-tard', 'fuckup', 'fuckwad', 'fuckwit', 'fudgepacker', 'fuk', 'fvck', 'fxck', 'gtfo', 'handjob', 'j3rk0ff', 'jackass', 'jackhole', 'jackoff', 'jerk0ff', 'jerkoff', 'jism', 'jiz', 'jizm', 'jizz', 'jizzed', 'motherfucka', 'motherfucker', 'motherfucking', 'mtherfucker', 'mthrfucker', 'mthrfucking', 'muthafuckaz', 'muthafucker', 'mutherfucker', 'mutherfucking', 'muthrfucking', 'nazi', 'nazism', 'negro', 'nigga', 'niggah', 'niggas', 'niggaz', 'nigger', 'niggers', 'niggle', 'niglet', 'pissed', 'pissoff', 'piss-off', 'porn', 'porno', 'pussies', 'pussy', 'pussypounder', 's.h.i.t.', 'sh1t', 's-h-1-t', 'shamedame', 's-h-i-t', 'shite', 'shiteater', 'shitface', 'shithead', 'shithole', 'shithouse', 'shits', 'shitt', 'shitted', 'shitter', 'shitty', 'shiz', 'slut', 'slutdumper', 'sluts', 'dicks'];
     if (swearWords.some(word => message.content.includes(word))) {
         if(message.guild.id !== "424200844666208265") return;
