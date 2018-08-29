@@ -12,6 +12,5 @@ module.exports = (bot) => {
 		let gameval = Math.floor((Math.random() * status.length));
 		bot.user.setActivity(`${status[gameval]}`, { type: "STREAMING", url: "https://www.twitch.tv/elarabots_discord" });
 		gameval++;
-		console.log(gameval++)
 	}, 10000);
 };
