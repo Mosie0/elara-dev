@@ -6,17 +6,12 @@ module.exports = (bot) => {
 	var status = [
 		`Prefix e! or E! | Serving: ${guildsize} Servers, ${channelsize} Channels, ${userssize} Users`,
 		`Prefix e! or E! | More Updates Coming Soon!`,
-		`Prefix e! or E! | My Support Server: https://discord.gg/hgsM86w`
+		`Prefix e! or E! | My Support Server: https://discord.gg/hgsM86w`,
 	];
-	var types = [
-		`STREAMING`,
-		`STREAMING`,
-		`STREAMING`
-	];
-	gameval = 0;
 	setInterval(() => {
-		if (gameval == status.length) { gameval = 0; }
-		bot.user.setActivity(`${status[gameval]}`, { type: types[gameval], url: "https://www.twitch.tv/elarabots_discord" });
+		let gameval = Math.floor((Math.random() * status.length));
+		bot.user.setActivity(`${status[gameval]}`, { type: "STREAMING", url: "https://www.twitch.tv/elarabots_discord" });
 		gameval++;
+		console.log(gameval++)
 	}, 10000);
 };
