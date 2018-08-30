@@ -1,19 +1,17 @@
-const Discord = require("discord.js");
-module.exports.run = async (bot, message, args) => {
-    const useruser = "Command Ran By: " + message.author.username;
-    const userurl = message.author.avatarURL;
-    let botembed = new Discord.RichEmbed()
-        .setColor("#000FF")
+const Discord = require('discord.js');
+module.exports.run = async (client, msg, args) => {
+    let loadingembed = new Discord.RichEmbed()
+        .setColor(`RANDOM`)
         .setDescription(`<a:Dots:426956230582599690> Loading......`)
         .setTimestamp()
-    message.channel.send(botembed).then(message =>{
-        botembed.setColor("#000FF")
-        botembed.setDescription(`:ping_pong: Pong! **\`${bot.pings[0]}ms\`**`)
-        botembed.setFooter(useruser, userurl)
-        botembed.setTimestamp()
-        message.edit(botembed)
-    })
-
+    const message = msg
+    const m = await msg.channel.send(loadingembed);
+    let embed = new Discord.RichEmbed()
+        .setColor(`RANDOM`)
+        .addField(`Latency`, `${m.createdTimestamp - msg.createdTimestamp}ms`, true)
+        .addField(`API Latency`, `${Math.round(client.ping)}ms`, true)
+        .setAuthor(client.user.username, client.user.avatarURL)
+    m.edit({ embed });
 }
 module.exports.help = {
     name: "ping",
