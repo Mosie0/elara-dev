@@ -8,8 +8,8 @@ module.exports.run = async (client, msg, args) => {
     const m = await msg.channel.send(loadingembed);
     let embed = new Discord.RichEmbed()
         .setColor(`RANDOM`)
-        .addField(`Latency`, `${m.createdTimestamp - msg.createdTimestamp}ms`, true)
-        .addField(`API Latency`, `${Math.round(client.ping)}ms`, true)
+        .addField(`Message Latency`, `${m.createdTimestamp - msg.createdTimestamp}ms`, true)
+        .addField(`Bot Latency`, `${Math.round(client.ping)}ms`, true)
         .setAuthor(client.user.username, client.user.avatarURL)
     m.edit({ embed });
 }
