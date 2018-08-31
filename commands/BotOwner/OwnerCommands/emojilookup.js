@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 module.exports.run = async (bot, msg, args) => {
-    if (message.author.id !== '288450828837322764' && msg.author.id !== '391529339214364674') return msg.react('482868924573155349')
+    if (msg.author.id !== '288450828837322764' && msg.author.id !== '391529339214364674') return msg.react('482868924573155349')
     let animEmotes = [],
         staticEmotes = [];
     let botserver = bot.guilds.get(args[0])
