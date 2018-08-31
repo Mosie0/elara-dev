@@ -24,7 +24,7 @@ module.exports.run = async (bot, msg, args) => {
         let embed = new Discord.RichEmbed()
             .setColor(`#FF000`)
             .setTitle(`Current Server Roles [${rolenumber}]`)
-            .setDescription(`${msg.guild.roles.sort((b, a) => { return a.position - b.position }).map(role => `${role}`).join(" | ")}`)
+            .setDescription(`${msg.guild.roles.sort((b, a) => { return a.position - b.position }).map(role => `${role}`).join(" \n ")}`)
         msg.channel.send(embed);
     }
 }
