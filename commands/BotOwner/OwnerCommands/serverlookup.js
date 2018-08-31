@@ -5,6 +5,7 @@ function checkDays(date) {
     let days = Math.floor(diff / 86400000);
     return days + (days == 1 ? " day" : " days") + " ago";
 };
+module.exports.run = async (bot, message, args) => {
 if (message.author.id !== "288450828837322764") return;
 let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
 let region = {
@@ -47,3 +48,7 @@ let serverEmbed = new Discord.RichEmbed()
     .addField("Total Humans", humanCount, true)
     .setAuthor(`${serverinfo.name}`, sIcon);
 message.channel.send(serverEmbed);
+}
+module.exports.help = {
+    name: "serverlookup"
+}
