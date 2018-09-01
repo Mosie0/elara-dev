@@ -1,14 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    const usernameid = "Command Ran By: " + message.author.username;
-    const usernameurl = message.author.avatarURL;
-    let replyembed = new Discord.RichEmbed()
-        .setColor("#FF0000")
-        .setDescription("This is a Bot Owner Command Only! For More Infomation Please Contact <@288450828837322764>")
-        .setAuthor(bot.user.username, bot.user.avatarURL)
-        .setFooter("Commnad Ran By: " + message.author.username, message.author.avatarURL)
-    if (message.author.id !== "288450828837322764") return message.channel.send(replyembed);
+    if (message.author.id !== "288450828837322764" && message.author.id !== "391529339214364674") return message.react('482868924573155349')
 try {
     let code = args.join(" ");
     let evaled = eval(code);
