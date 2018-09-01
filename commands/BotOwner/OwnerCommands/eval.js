@@ -11,7 +11,6 @@ try {
    let cleanembed = new Discord.RichEmbed()
    .setColor("#000FF")
    .setDescription(("x1", clean(evaled)))
-   .setFooter(usernameid, usernameurl)
    message.channel.send(cleanembed);
 
 } catch (err) {
@@ -19,7 +18,6 @@ try {
     let botembed = new Discord.RichEmbed()
     .setColor("#FF0000")
     .setDescription(`\`ERROR\` \'\'\'x1\n${clean(err)}\n\`\'\``)
-    .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL)
     message.channel.send(botembed);
 }
 }
