@@ -7,6 +7,7 @@ module.exports = (bot) => {
 		`Prefix e! or E! | Serving: ${guildsize} Servers, ${channelsize} Channels, ${userssize} Users`,
 		`Prefix e! or E! | More Updates Coming Soon!`,
 		`Prefix e! or E! | My Support Server: https://discord.gg/hgsM86w`,
+		`Prefix e! or E! | Want a Suggest a new Command? do e!botsuggest`
 	];
 	setInterval(() => {
 		let gameval = Math.floor((Math.random() * status.length));
