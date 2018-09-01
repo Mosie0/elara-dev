@@ -341,12 +341,13 @@ bot.on("message", async message => {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
         cooldown.add(message.author.id);
     }
+    let ops = config.SC
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
-    if (commandfile) commandfile.run(bot, message, args);
+    if (commandfile) commandfile.run(bot, message, args, ops);
 
     setTimeout(() => {
         cooldown.delete(message.author.id)
