@@ -4,7 +4,6 @@ module.exports = (bot) => {
      	`Prefix l! or L! | Watching Lumber Fans`,
 		`Prefix l! or L! | Chopping Trees`,
 		`Prefix l! or L! | Building`
-        ``
     ];
     setInterval(() => {
         let gameval = Math.floor((Math.random() * status.length));
