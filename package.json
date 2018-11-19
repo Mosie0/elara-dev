@@ -1,10 +1,10 @@
 {
-  "name": "Elara",
+  "name": "fangroup",
   "engines": {
     "node": "^10.6.0"
   },
   "scripts": {
-    "start": "node Elara.js"
+    "start": "node FanGroup.js"
   },
   "dependencies": {
     "array-sort": "^1.0.0",
