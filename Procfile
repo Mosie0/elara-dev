@@ -1,1 +1,1 @@
-worker: node Elara.js
+worker: node FanGroup.js
