@@ -76,7 +76,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("Supervisors")
     .setDescription(`This rank is basically the staff of the group. They help maintain the operation and the community of all members in the group. Some of their main roles are to keep the wall clean, help people get ranked up, to report scammers/dupers, and lots more. To apply for this rank, fill out the application found in <#351099766995943425> and send your completed application to a Supervisor.`)
 
-    let ranks11 = new Discord.RichEmbed
+    let ranks11 = new Discord.RichEmbed()
     .setColor("1bf7f3")
     .setTitle("King Architect")
     .setDescription(`King Architect: This is the lead builder for the group HQ and offices. The King Architect is also the leader over the other builders in the group and the King Architect did not build LT2. Please don’t ask for this rank, the only time that this rank will be offered to others will be when the King Architect quits.`)
